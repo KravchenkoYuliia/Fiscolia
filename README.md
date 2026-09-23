@@ -1,10 +1,18 @@
-*This project has been created as part of the 42 curriculum by aherlaud, ldevigne, lflayeux, yukravch.*
+*This project has been created by aherlaud, ldevigne, lflayeux, yukravch.*
 
-# ft_transcendence (Fiscolia)
+# Fiscolia
+
+## Visual presentation
+![Homepage1](/srcs/frontend/srcs/assets/site_screenshots/Homepage1.png)
+![Homepage2](/srcs/frontend/srcs/assets/site_screenshots/Homepage2.jpg)
+![Emoji](/srcs/frontend/srcs/assets/site_screenshots/emoji.png)
+![My_profile1](/srcs/frontend/srcs/assets/site_screenshots/Mon_profil1.png)
+![My_profile2](/srcs/frontend/srcs/assets/site_screenshots/Mon_profil2.png)
+![Chatbot](/srcs/frontend/srcs/assets/site_screenshots/Chatbot_page.png)
 
 ## Description
 
-Fiscolia is a tax-declaration assistance platform built as a 42 ft_transcendence project. The goal of the project is to guide users through their fiscal declaration with a web application that combines authentication, user profiles, recommendation logic (Machine-Learning), and an AI-powered chatbot.
+Fiscolia is a tax-declaration assistance platform. The goal of the project is to guide users through their fiscal declaration with a web application that combines authentication, user profiles, recommendation logic (Machine-Learning), and an AI-powered chatbot.
 
 Key features:
 
@@ -83,12 +91,6 @@ https://localhost/kibana/app/dashboards
 - WAF: https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/
 - HashiCorp Vault: https://developer.hashicorp.com/vault/docs/commands/kv
 
-### AI usage
-
-- AI was used to draft and structure this README from the existing repository layout, Makefile, Docker Compose stack, and ADR documents.
-- AI was used to summarize the project architecture and turn the existing implementation details into a clear English description.
-- AI was not used to implement the application logic itself in this README task.
-
 ## Team Information
 
 Team members listed at the top of the README:
@@ -97,25 +99,6 @@ Team members listed at the top of the README:
 - `<ldevigne>` - Role: `Product Owner` - Responsibilities: Lucas main focus was to design features (mostly around ML and AI) and check with others if it was possible (or how to adapt the idea to the faisability of the project).
 - `<lflayeux>` - Role: `Architect` - Responsibilities: Lorenzo was in charge of leading the core frame of the project, to implement tests (CI/CD), to make sure that logs were properly retrieved and overall that the project was runable.
 - `<yukravch>` - Role: `Product Owner` - Responsibilities: Yuliia had to implement major security features along with her interest for the product vision oriented fronted, leading to get a huge responsability for the website overall design. 
-
-## Project Management
-
-### Work organization
-
-To keep it simple, we had 2 weekly meetings :
-- 1 to discuss about issues encountered
-- 1 peer-reviews : each member should explain the work done in the week to other members
-The remaining work was very autonomous, and we made sure that everyone could use discord to ask questions, and it made things easier because of written mode. (We were able to search for specific topics, or read posted documentation).
-
-### Tools used for project management
-
-- Github
-- Many youtube ressources for AI and ML comprehension, but also for the beginning on "how to build a full-stack website""
-- Classic LLM such as Gemini and Claude mostly to explain specific questions about code syntax etc. 
-
-### Communication channels
-
-- Discord with categories and channels ![image](docs/illustration/discord_pattern.png)
 
 ## Technical Stack
 
@@ -253,32 +236,32 @@ Let's dig deeper and be more specific :
 
 ## Modules
 
-### Chosen modules
-
 - Web (Backend : all team | Frontend : Yuliia)
-	- Major: Use a framework for both the frontend and backend. (2 points) <-> React frontend | FastAPI backend
-	- Major: Implement real-time features using WebSockets or similar technology. (2 points) <-> our chatbot uses WebSocket
-	- Minor: Use an ORM for the database. (1 point) <-> SqlAlchemy used for this
-	- Minor: Custom-made design system with reusable components, including a propercolor palette, typography, and icons (minimum: 10 reusable components). (1 point)
+	- Major: Use a framework for both the frontend and backend.  <-> React frontend | FastAPI backend
+	- Major: Implement real-time features using WebSockets or similar technology.  <-> our chatbot uses WebSocket
+	- Minor: Use an ORM for the database.   <-> SqlAlchemy used for this
+	- Minor: Custom-made design system with reusable components, including a propercolor palette, typography, and icons (minimum: 10 reusable components).  
 
 > We found this to be a very solid way to implement our idea : both backend and frontend frameworks do work nice together and are also very popular on the job market nowadays.
 
 - Artificial Intelligence (Alexandre & Lucas)
-	- Major: Implement a complete RAG (Retrieval-Augmented Generation) system. (2 points) <-> we used ChromaDB mostly
-	- Major: Implement a complete LLM system interface. (2 points) <-> we chose llama3.2:1b that is powered by an Ollama service
-	- Major: Recommendation system using machine learning. (2 points) <-> the creation of the neural network can always grow depending on the data inside `userdata`.
+	- Major: Implement a complete RAG (Retrieval-Augmented Generation) system.  <-> we used ChromaDB mostly
+	- Major: Implement a complete LLM system interface.  <-> we chose llama3.2:1b that is powered by an Ollama service
+	- Major: Recommendation system using machine learning.  <-> the creation of the neural network can always grow depending on the data inside `userdata`.
 
 > We first chose to user mistral:latest LLM model : even if the model went smooth on our personnal computers, it was too needy at school, even more with all the other services that had to run together. We faced a hard constraint then and moved to llama3.2:1b which of course is not very 'smart' but works and demonstrate how this project works. We are aware that the answers given by the LLM are often inacurrate but it's mainly due to this hardware limitation rather than a misconception in the code.
 
 - Cybersecurity (Yuliia)
-	- Major: Implement WAF/ModSecurity (hardened) + HashiCorp Vault for secrets (2 points)
+	- Major: Implement WAF/ModSecurity (hardened) + HashiCorp Vault for secrets  
 
 - Devops (Lorenzo)
-	- Major: Infrastructure for log management using ELK (Elasticsearch, Logstash, Kibana) (2 points)
-	- Major: Backend as microservices. (2 points)
+	- Major: Infrastructure for log management using ELK (Elasticsearch, Logstash, Kibana)  
+	- Major: Backend as microservices.
+- Major: Infrastructure for log management using ELK (Elasticsearch, Logstash, Kibana) 
+	- Major: Backend as microservices. 
 
 - Modules of choice
-	- Major: Smart Contextual Cookies & Multi-Session Management : (Lucas) (2 points)
+	- Major: Smart Contextual Cookies & Multi-Session Management : (Lucas) 
 		- To provide a seamless User Experience (UX), we implemented a "Smart Cookie" system. This module goes beyond standard authentication by persisting user sessions safely (eliminating repetitive logins) and embedding lightweight user profile metadata to instantly feed our Machine Learning recommendation engine upon page load.
 		- Implementing this robustly required solving advanced state and security challenges:
 			- **Simultaneous Multi-User Handling:** Standard cookies often overwrite each other when multiple accounts are used on the same browser. We developed a custom session-partitioning mechanism. It perfectly isolates concurrent users and ensures that logging out of one account selectively destroys only the associated encrypted data without affecting other active sessions.
@@ -288,17 +271,13 @@ Let's dig deeper and be more specific :
 
 	> This choice was a solid approach to understand how to use Cookies. Even if we could get more technical with backend to avoid this choice, this design made all the navigation pretty smooth and secure. In the future we even may take a more specific look at prompt injection issues (which may be caused only by the fact that the backend communicates with ollama about the data stored inside the user's cookie, so nothing is really problematic). Moreover, the cookie only stores the session_id and anything related to a direct password or any data from the server itself. We managed to create a stateful token inside the cookie, that is deleted if the user logout, or if the cookie expires (which is calculated on the server side).
 
-	- Minor: Universal VM Compatibility & Optimization : (all team) (1 point)
+	- Minor: Universal VM Compatibility & Optimization : (all team) 
 		- We wanted to ensure our project was accessible to anyone, regardless of their host operating system (Linux, macOS, Windows) or hardware limitations. By designing the project to be fully runnable inside a standard Virtual Machine (VM), we eliminate the "it works on my machine" syndrome and guarantee a uniform behavior during evaluation.
 		- Making a project seamlessly runnable inside a VM is not trivial and required addressing several constraints:
 			- **Resource Constraints:** We optimized our code (memory management and CPU usage) to ensure smooth performance even within a single-core, low-RAM virtual environment.
 			- **Display & I/O Emulation:** We configured the project to handle software rendering and network port forwarding properly, bypassing the lack of native hardware/GPU acceleration inside basic VMs.
 			- **Dependency Isolation:** We packaged and scripted the environment setup so that no host-level library conflicts could break the execution.
 		- This module grants almost every hardware setup the ability to run and test our project under identical conditions. It acts as a bridge for continuous integration (CI) compatibility and demonstrates our team's ability to cross-compile, optimize for restricted environments, and manage system-level abstractions. This technical effort to ensure robust portability justifies its status as a Minor module.
-
-### Point calculation
-
-Total : 21 points
 
 ## Additional Notes
 
